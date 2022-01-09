@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ContasController {
     }
 
     @PostMapping
-    public ResponseEntity<ContaDto> cadastrar(@RequestBody ContaForm form, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<ContaDto> cadastrar(@RequestBody @Valid ContaForm form, UriComponentsBuilder uriBuilder) {
         Conta conta = form.converter(contaRepository);
         contaRepository.save(conta);
         URI uri = uriBuilder.path("/contas/{id}").buildAndExpand(conta.getId()).toUri();

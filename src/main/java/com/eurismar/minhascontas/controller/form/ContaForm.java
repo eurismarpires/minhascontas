@@ -3,8 +3,11 @@ package com.eurismar.minhascontas.controller.form;
 import com.eurismar.minhascontas.modelo.Conta;
 import com.eurismar.minhascontas.repository.ContaRepository;
 
+import javax.validation.constraints.NotNull;
+
 public class ContaForm {
 
+    @NotNull
     private String nome;
     private Double saldoInicial;
 

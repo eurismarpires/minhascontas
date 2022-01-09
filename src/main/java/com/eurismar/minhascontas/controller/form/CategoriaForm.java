@@ -5,8 +5,10 @@ import com.eurismar.minhascontas.modelo.Conta;
 import com.eurismar.minhascontas.repository.CategoriaRepository;
 import com.eurismar.minhascontas.repository.ContaRepository;
 
-public class CategoriaForm {
+import javax.validation.constraints.NotNull;
 
+public class CategoriaForm {
+    @NotNull
     private String nome;
 
     public String getNome() {
