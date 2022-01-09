@@ -13,6 +13,13 @@ public class Conta {
     private Long id;
     private String nome;
 
+    public Conta(String nome) {
+        this.nome = nome;
+    }
+
+    public Conta() {
+    }
+
     public Long getId() {
         return id;
     }

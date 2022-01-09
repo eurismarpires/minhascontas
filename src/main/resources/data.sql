@@ -1,0 +1,5 @@
+INSERT INTO CONTA(nome) VALUES('Carteira');
+INSERT INTO CONTA(nome) VALUES('Itau');
+INSERT INTO CONTA(nome) VALUES('Inter');
+INSERT INTO CONTA(nome) VALUES('Nubank');
+INSERT INTO CONTA(nome) VALUES('Credicard');
