@@ -9,7 +9,7 @@ public class Teste {
 
     @RequestMapping("/")
     @ResponseBody
-    public String Ola(){
+    public String Ola() {
         return "Olá bem vindo, tudo bem!";
     }
 }

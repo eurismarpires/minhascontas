@@ -20,14 +20,14 @@ public class ContasController {
     private ContaRepository contaRepository;
 
     @GetMapping
-    public List<ContaDto> lista(){
+    public List<ContaDto> lista() {
         List<Conta> contas = contaRepository.findAll();
         return ContaDto.converter(contas);
     }
+
     @PostMapping
-    public ResponseEntity<ContaDto> cadastrar(@RequestBody ContaForm form, UriComponentsBuilder uriBuilder){
-        System.out.println("chegou até aqui");
-        Conta  conta = form.converter(contaRepository);
+    public ResponseEntity<ContaDto> cadastrar(@RequestBody ContaForm form, UriComponentsBuilder uriBuilder) {
+        Conta conta = form.converter(contaRepository);
         contaRepository.save(conta);
         URI uri = uriBuilder.path("/contas/{id}").buildAndExpand(conta.getId()).toUri();
         return ResponseEntity.created(uri).body(new ContaDto(conta));

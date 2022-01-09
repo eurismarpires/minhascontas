@@ -7,19 +7,13 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Conta {
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Double saldoInicial;
 
-    public Conta(String nome, Double saldoInicial) {
-        this.nome = nome;
-        this.saldoInicial = saldoInicial;
-    }
-
-    public Conta() {
+    public Categoria() {
     }
 
     public Long getId() {
@@ -34,28 +28,24 @@ public class Conta {
         return nome;
     }
 
-    public void setDescricao(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Double getSaldoInicial() {
-        return saldoInicial;
-    }
-
-    public void setSaldoInicial(Double saldoInicial) {
-        this.saldoInicial = saldoInicial;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Conta conta = (Conta) o;
-        return id.equals(conta.id);
+        Categoria categoria = (Categoria) o;
+        return Objects.equals(id, categoria.id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public Categoria(String nome) {
+        this.nome = nome;
     }
 }
