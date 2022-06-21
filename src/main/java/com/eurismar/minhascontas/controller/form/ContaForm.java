@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 public class ContaForm {
 
-    @NotNull @Min(5)
+    @NotNull @Min(1)
     private String nome;
     private Double saldoInicial;
 

@@ -9,7 +9,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class CategoriaForm {
-    @NotNull @Min(5)
+
     private String nome;
 
     public String getNome() {
@@ -23,5 +23,11 @@ public class CategoriaForm {
     public Categoria converter(CategoriaRepository categoriaRepository) {
         // Categoria categoria = categoriaRepository.findByNome(nome);
         return new Categoria(nome);
+    }
+    public Categoria editar(Long id, CategoriaRepository categoriaRepository){
+        Categoria categoria = categoriaRepository.getOne(id);
+        categoria.setNome(this.nome);
+        System.out.println(" atualizou a categoria: " + this.nome);
+        return categoria;
     }
 }
